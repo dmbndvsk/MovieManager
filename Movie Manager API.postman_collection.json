@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "8d1e121d-2c96-4b6e-b768-1706c9c59ad7",
+		"name": "Movie Manager API",
+		"description": "Postman collection for Movie Manager API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23734053"
+	},
+	"item": [
+		{
+			"name": "Get All Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movies?skip=0&take=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "take",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Title or Genre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "title",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/search?title=New Movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "New Movie"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movies/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5e9f714e-93a1-4be8-9ba2-da4df6872900"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Movie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"New Movie Test\",\n    \"description\": \"This is a new movie\",\n    \"releaseDate\": \"2024-06-20\",\n    \"genres\": [\"Horror\", \"Comedy\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movie",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Movie\",\n    \"description\": \"This is an updated movie\",\n    \"releaseDate\": \"2024-06-21\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "a292350d-77e8-44b0-bc19-ac47ab7788fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movies/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5ba156ed-f2e9-4acd-b949-25b70382bd06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Genre by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/genres/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"genres",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "b845a9bb-7de2-4191-8564-da46b7fca131"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Genre",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Drama\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Genre",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/genres/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"genres",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "71cfb33a-b294-43b2-b18f-b1bb1e262bb2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
